@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon src/app.ts",
     "test": "jest",
-    "prettier:format": "npx prettier --write ."
+    "prettier:format": "npx prettier --write .",
+    "tsc": "npx tsc",
+    "build": "tsc"
   },
   "author": "Júlio Lacerda",
   "license": "ISC",
