@@ -29,5 +29,5 @@ app.get("/dingdong", async (req: Request, res: Response) => {
   console.log("Number of recipes: ", facade.recipes.length);
   console.log("Number of doable recipes: ", cocktailRecipes.length);
 
-  res.send([facade.ingredientsAtHand, cocktailRecipes]);
+  res.send({ ingredients: facade.ingredientsAtHand, recipes: cocktailRecipes });
 });
