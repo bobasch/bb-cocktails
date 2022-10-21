@@ -7,6 +7,8 @@ export interface CocktailRecipe {
   instructions: string;
   modified: string;
   ingredients: Ingredient[];
+  similarity: number;
+  similarityDiff: Ingredient[];
 }
 
 export type CocktailRecipesResponse = CocktailRecipe[];
