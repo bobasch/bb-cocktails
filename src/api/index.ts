@@ -1,6 +1,11 @@
 import axios from "axios";
 import dotenv from "dotenv";
 import { HttpClient } from "./client";
+import {
+  AllIngredientsResponse,
+  AvailableIngredientsResponse,
+  CocktailRecipesResponse,
+} from "./interface";
 import { AxiosHttpClientProvider } from "./provider";
 
 dotenv.config();
@@ -22,7 +27,7 @@ class CocktailsAPI {
     return `${this.httpClient.baseUrl}/${endpoint}`;
   }
 
-  async allIngredients(): Promise<any> {
+  async allIngredients(): Promise<AllIngredientsResponse> {
     /**
      * Endpoint: https://cocktails.deno.dev/all-ingredients
      */
@@ -38,7 +43,7 @@ class CocktailsAPI {
     return data;
   }
 
-  async availableIngredients(): Promise<any> {
+  async availableIngredients(): Promise<AvailableIngredientsResponse> {
     /**
      * Endpoint: https://cocktails.deno.dev/available-ingredients
      */
@@ -54,7 +59,7 @@ class CocktailsAPI {
     return data;
   }
 
-  async recipes(): Promise<any> {
+  async recipes(): Promise<CocktailRecipesResponse> {
     /**
      * Endpoint: https://cocktails.deno.dev/cocktails
      */
@@ -71,7 +76,7 @@ class CocktailsAPI {
   }
 }
 
-const API_BASE_URL = process.env.API_BASE_URL || 'not-defined'
+const API_BASE_URL = process.env.API_BASE_URL || "not-defined";
 const axiosHttpClientProvider = new AxiosHttpClientProvider(API_BASE_URL);
 const httpClient = new HttpClient(axiosHttpClientProvider);
 const api = new CocktailsAPI(httpClient);
